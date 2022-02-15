@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Form
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/phy6hfy.css">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+    <noscript>
+      <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
+    </noscript>
+  
+</head>
+<style>
+    
+.floatbutton {
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    position: fixed;
+    right: -370px;
+    top: 18%;
+    font-size: 0;
+    width: 420px;
+    z-index: 200
+}
+
+.floatbutton.active {
+    right: 0;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s
+}
+
+.floatbutton .clickbutton {
+    width: 50px;
+    z-index: 99;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: -20px 0 35px #0000001f;
+    border-radius: 40px 0 0 40px;
+    background: #fff;
+    display: inline-block;
+    padding-top: 0;
+    vertical-align: top;
+    margin-top: 125px
+}
+
+.floatbutton .clickbutton .crossplus:before {
+    content: "";
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    right: 0;
+    background: #fbb334;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.floatbutton .clickbutton .crossplus:after {
+    content: "";
+    display: none;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    right: 0;
+    background: #fab334;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.floatbutton .clickbutton .crossplus {
+    position: relative;
+    display: block;
+    transform: rotate(0);
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s
+}
+
+.floatbutton .clickbutton .crossplus.rotate {
+    transform: rotate(45deg);
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s
+}
+
+.floatbutton .clickbutton .crossplus i {
+    font-size: 18px;
+    color: #b32524;
+    margin: 17px 0 0 15px
+}
+
+.floatbutton .banner-form {
+    background: #fff;
+    padding: 30px;
+    position: relative;
+    z-index: 9;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    width: 370px;
+    max-width: 100%;
+    display: inline-block;
+    box-shadow: 0 0 30px #0000001f
+}
+
+.floatbutton .ban-form input {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 10px 15px;
+    color: gray;
+    font-size: 14px;
+    border-radius: 3px;
+    height: 50px;
+    font-weight: 400;
+    outline: 0 !important;
+    margin: 0 0 15px 0
+}
+
+.floatbutton .banner-form .intl-tel-input {
+    width: 100%
+}
+
+.floatbutton .banner-form h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 400
+}
+
+.floatbutton .banner-form h3 strong {
+    font: 24px/24px gilroy-bold, sans-serif;
+    font-weight: 500
+}
+
+.floatbutton .ban-form input[type=submit] {
+    color: #fff;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6a070a 0, #b32524 100%);
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px 15px;
+    margin: 20px 0 0;
+    border: transparent
+}
+
+.floatbutton .ban-form textarea {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 10px 15px;
+    color: gray;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: 400;
+    height: 120px;
+    outline: 0 !important;
+    margin: 15px 0 0 0
+}
+
+.floatbutton .btns_wrap {
+    position: fixed;
+    right: -6px
+}
+
+.floatbutton .btns_wrap a:hover {
+    text-decoration: none !important;
+    right: 0
+}
+
+.floatbutton .btns_wrap .call_wrap {
+    width: 280px;
+    position: absolute;
+    right: -225px;
+    background: #fff;
+    top: 60px;
+    border-radius: 50px 0 0 50px;
+    overflow: hidden;
+    box-shadow: 0 0 40px #00000026 !important;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.floatbutton .btns_wrap .call_wrap span {
+    border-left: 1px solid #ded9d9;
+    color: #333;
+    font-size: 20px;
+    vertical-align: middle;
+    background: #fff;
+    padding: 15px 20px 15px 15px
+}
+
+.floatbutton .btns_wrap .chat_wrap {
+    display: block;
+    position: absolute;
+    right: -225px;
+    width: 280px;
+    background: #fff;
+    top: -5px;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 0 40px #00000026 !important;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    border-radius: 50px 0 0 50px
+}
+
+.floatbutton .btns_wrap .call_wrap span.icoo, .floatbutton .btns_wrap .chat_wrap span.icoo {
+    color: #b32524;
+    background: #fff;
+    font-size: 18px;
+    padding: 15px 20px;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 50px 0 0 50px
+}
+
+.floatbutton .btns_wrap .chat_wrap span {
+    color: #333;
+    font-size: 20px;
+    vertical-align: middle;
+    background: #fff;
+    padding: 15px 30px 15px 15px
+}
+
+</style>
+<body>
+    <div class="floatbutton">
+        <div class="btns_wrap">
+                
+                <!-- <a href="javascript:;" class="chat_wrap" onclick="$zopim.livechat.window.toggle()">
+                  <span class="icoo"><i class="fa fa-comment"></i></span>
+                  <span>Chat With Us</span>
+                </a> -->
+                <a href="tel:+0000000000" class="call_wrap">
+                 <span class="icoo"><i class="fa fa-phone"></i></span>
+                  <span> +0 000-000-0000 </span>
+                </a>
+        </div>
+    
+    
+          <div class="clickbutton" id="open"><div class="crossplus"><i class="fa fa-send"></i></div></div>
+          <div class="banner-form">
+            <h3>Chat With Us to <br><strong>AVAIL 50% Discount</strong></h3>
+            <div class="banform">
+              <div class="container">
+                <div class="row">
+                    <div class="ban-form">
+                 <form id="popupfrm" class="cmxform" method="POST" action="">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="fldset">
+                              <input id="username" name="Name" minlength="2" type="text" placeholder="Enter your name" required="">
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="fldset">
+                              <input id="cemail" type="email" name="Email" placeholder="Enter email here" required="">
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="fldset">
+                              <input id="phone-coun" name="Number" type="number" placeholder="Phone Number" required="">
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="fldset">
+                              <textarea name="Message" id="" rows="7" placeholder="Talk About Your Project"></textarea>
+                            </div>
+                          </div>
+                          
+                          <div class="col-lg-12">
+                            <div class="fldset">
+                              <input name="submit" type="submit" placeholder="Connect With Us" required="">
+                                <input type="hidden" name="hiddencapcha" value="">
+                                <input type="hidden" name="ctry" value="">
+                                <input type="hidden" name="pc" value="">
+                                <input type="hidden" name="cip">
+                                <input type="hidden" id="location" name="locationURL" value="ghost-writing.php">
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>  
+        </div>
+        </div>
+    
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script> 
+$(document).ready(function () {
+    "use strict";
+    $(".clickbutton").click(function () {
+        $(".floatbutton").toggleClass("active"), $(".crossplus").toggleClass("rotate")
+    })
+})
+    </script>
+</html>
